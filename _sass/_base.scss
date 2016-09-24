@@ -1,0 +1,83 @@
+@import 'variables';
+@import 'neat/neat', 'bourbon/bourbon';
+
+html {
+  margin: 0;
+  padding: 0;
+  border-left: 12px solid $dark-green;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: $charcoal;
+  background-color: $pearl;
+}
+
+a {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+  color: $pale-blue;
+  display: inline-block;
+
+  &:hover:after {
+    width: 100%;
+    background-color: $pale-blue;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background-color: transparent;
+    @include transition(width 0.5s ease, background-color 0.3s ease);
+  }
+}
+
+#main {
+  @include outer-container;
+
+  > header {
+    @include span-columns(12);
+    font: {
+      family: $fira;
+      size: 8rem;
+      weight: 300;
+    }
+    text-shadow: 1px 1px 4px darken($pearl, 30%);
+    margin: {
+      top: 50px;
+      bottom: 50px;
+    }
+  }
+
+  section#content {
+    @include span-columns(9);
+    @include shift(3);
+  }
+
+  .post-block {
+    margin-bottom: 50px;
+
+    > header {
+      font-size: 1.5rem;
+
+      > span {
+        font-size: 1.1rem;
+      }
+    }
+
+    > section {
+      > p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+}
